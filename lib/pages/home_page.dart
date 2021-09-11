@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool checkLocation = false;
+  bool textstate = false;
 
   Future<void> location_Function() async {
     Location location = new Location();
@@ -210,39 +211,73 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.transparent,
                           child: Padding(
                             padding: const EdgeInsets.all(20.0),
-                            child: Row(
-                              children: <Widget>[
-                                Lottie.asset('assets/files/location.json'),
-                                Expanded(
-                                  child: Column(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "BOOK A RIDE",
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                InkWell(
+                                  onTap: () {},
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
-                                        "Please Enable locations for a better experience",
-                                      ),
-                                      SizedBox(height: 10),
-                                      Material(
-                                        color: Colors.deepPurple,
-                                        borderRadius: BorderRadius.circular(50),
-                                        child: InkWell(
-                                          onTap: () {
-                                            location_Function();
-                                          },
-                                          child: AnimatedContainer(
-                                              duration: Duration(seconds: 1),
-                                              width: 150,
-                                              height: 40,
-                                              alignment: Alignment.center,
-                                              child: Text(
-                                                "Enable Location",
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              )),
+                                      Container(
+                                        height: 10,
+                                        width: 10,
+                                        margin: EdgeInsets.only(right: 5),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          color: Colors.green,
                                         ),
-                                      )
+                                      ),
+                                      Text(
+                                        "Enter your destination",
+                                      ),
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.2,
+                                      ),
+                                      Icon(Icons.search)
                                     ],
                                   ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                SizedBox(
+                                  height: 40,
+                                  child: ListView.builder(
+                                      itemCount: 10,
+                                      scrollDirection: Axis.horizontal,
+                                      itemBuilder: (context, index) =>
+                                          Container(
+                                            margin: EdgeInsets.only(right: 2),
+                                            child: Material(
+                                              color: Colors.black12,
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                              child: InkWell(
+                                                onTap: () => {},
+                                                child: Container(
+                                                    width: 150,
+                                                    height: 50,
+                                                    alignment: Alignment.center,
+                                                    child: Text(
+                                                      "Location $index",
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                      ),
+                                                    )),
+                                              ),
+                                            ),
+                                          )),
                                 ),
                               ],
                             ),
@@ -292,6 +327,29 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ],
+                ),
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      if (textstate) {
+                        textstate = false;
+                      } else {
+                        textstate = true;
+                      }
+                    });
+                  },
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Click here to learn",
+                        style: TextStyle(
+                            color: Colors.deepPurple,
+                            fontSize: textstate ? 18 : 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

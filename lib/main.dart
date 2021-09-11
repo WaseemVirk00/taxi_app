@@ -4,8 +4,10 @@ import 'package:taxi_app/pages/input_mobile_number.dart';
 import 'package:taxi_app/pages/otp_mobile_number.dart';
 import 'package:taxi_app/pages/sign_up.dart';
 import 'package:taxi_app/pages/splash_screen.dart';
+import 'package:taxi_app/pages/wallet_page.dart';
 import 'package:taxi_app/utils/routers.dart';
 import 'package:taxi_app/utils/theme.dart';
+
 import 'pages/onbording.dart';
 
 void main() {
@@ -20,7 +22,7 @@ class Myapp extends StatelessWidget {
         themeMode: ThemeMode.light,
         theme: MyTheme.lightTheme(context),
         darkTheme: MyTheme.darkTheme(context),
-        initialRoute: MyRoutes.homeRoute,
+        initialRoute: MyRoutes.walletRoute,
         routes: {
           MyRoutes.homeRoute: (context) => HomePage(),
           MyRoutes.splashRoute: (context) => SplashScreen(),
@@ -28,6 +30,7 @@ class Myapp extends StatelessWidget {
           MyRoutes.inputMobileNumberRoute: (context) => InputMobileNumber(),
           MyRoutes.otpMobileNumberRoute: (context) => OtpMobileNumber(),
           MyRoutes.signUpRoute: (context) => Sign_Up(),
+          MyRoutes.walletRoute: (context) => WalletPage(),
         });
   }
 }
