@@ -7,4 +7,7 @@ class MyRoutes {
   static const String otpMobileNumberRoute = "/otpMobileNumber";
   static const String signUpRoute = "/signUp";
   static const String walletRoute = "/wallet";
+  static const String creditCardPageRoute = "/creditCardPage";
+  static const String transactionsPageRoute = "/transactionsPage";
+  static const String transactionDetailPageRoute = "/transactionDetailPage";
 }

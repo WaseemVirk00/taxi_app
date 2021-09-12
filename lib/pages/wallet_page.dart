@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taxi_app/pages/credit_card_page.dart';
+import 'package:taxi_app/pages/transactions_page.dart';
 import 'package:taxi_app/utils/my_styles.dart';
 
 class WalletPage extends StatefulWidget {
@@ -15,8 +18,16 @@ class _WalletPageState extends State<WalletPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        title: Text(
+          "Wallet",
+          style: GoogleFonts.poppins(
+            fontSize: 18,
+            color: Color(0xff3A4276),
+            fontWeight: FontWeight.w800,
+          ),
+        ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back_ios_outlined, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -39,11 +50,15 @@ class _WalletPageState extends State<WalletPage> {
                   SizedBox(
                     height: 30,
                   ),
-                  _contentOverView(),
+                  _contentOverView(context),
                   SizedBox(
                     height: 20,
                   ),
                   _addCardView(context),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  _addedCardView(context),
                   SizedBox(
                     height: 34,
                   ),
@@ -59,7 +74,13 @@ class _WalletPageState extends State<WalletPage> {
                         ),
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () async {
+                          await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TransactionsPage(),
+                              ));
+                        },
                         child: Text(
                           "View all",
                           style: GoogleFonts.poppins(
@@ -82,7 +103,7 @@ class _WalletPageState extends State<WalletPage> {
   }
 }
 
-Widget _contentOverView() {
+Widget _contentOverView(BuildContext context) {
   return Container(
     padding: EdgeInsets.only(left: 18, right: 18, top: 22, bottom: 22),
     decoration: BoxDecoration(
@@ -123,7 +144,9 @@ Widget _contentOverView() {
           ],
         ),
         FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            _settingModalBottomSheet(context);
+          },
           child: Icon(Icons.add),
         )
       ],
@@ -173,7 +196,13 @@ Widget _addCardView(BuildContext context) {
               color: Colors.green.withOpacity(0.1),
               borderRadius: BorderRadius.circular(50),
               child: InkWell(
-                onTap: () {},
+                onTap: () async {
+                  await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CreditCardPage(),
+                      ));
+                },
                 child: AnimatedContainer(
                     duration: Duration(seconds: 1),
                     width: MediaQuery.of(context).size.width,
@@ -189,9 +218,25 @@ Widget _addCardView(BuildContext context) {
                     )),
               ),
             ),
-          )
+          ),
         ],
       ),
+    ),
+  );
+}
+
+Widget _addedCardView(BuildContext context) {
+  return Container(
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10), color: Color(0xffF1F3F6)),
+    child: CreditCardWidget(
+      cardNumber: "4862477000196880",
+      expiryDate: "04/24",
+      cardHolderName: "Muhammad Waseem".toUpperCase(),
+      cvvCode: "1234",
+      showBackView: false,
+      obscureCardNumber: true,
+      obscureCardCvv: true,
     ),
   );
 }
@@ -222,13 +267,74 @@ Widget _ListofTransactions(BuildContext context) {
           )));
 }
 
-class AddMoneyDialog extends StatelessWidget {
-  const AddMoneyDialog({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Dialog(
-      child: Container(),
-    );
-  }
+void _settingModalBottomSheet(context) {
+  int _selected = 0;
+  showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          height: 260,
+          color: Color(0xff737373),
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Add funds from",
+                        style: GoogleFonts.poppins(
+                          fontSize: 22,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: Icon(Icons.cancel)),
+                    ],
+                  ),
+                  ListTile(
+                    leading: new Icon(Icons.payment),
+                    title: new Text(
+                      'Credit/debit card',
+                      style: MyStyles.headTextStyle(),
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: new Icon(Icons.payment),
+                    title: new Text(
+                      'Jazzcash',
+                      style: MyStyles.headTextStyle(),
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: new Icon(Icons.payment),
+                    title: new Text(
+                      'Easypaisa',
+                      style: MyStyles.headTextStyle(),
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
+            ),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: const Radius.circular(20),
+                    topRight: const Radius.circular(20))),
+          ),
+        );
+      });
 }
