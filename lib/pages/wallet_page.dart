@@ -5,6 +5,9 @@ import 'package:taxi_app/pages/credit_card_page.dart';
 import 'package:taxi_app/pages/transactions_page.dart';
 import 'package:taxi_app/utils/my_styles.dart';
 
+import 'easypaisa_page.dart';
+import 'jazz_cash_page.dart';
+
 class WalletPage extends StatefulWidget {
   const WalletPage({Key? key}) : super(key: key);
 
@@ -312,8 +315,12 @@ void _settingModalBottomSheet(context) {
                       'Jazzcash',
                       style: MyStyles.headTextStyle(),
                     ),
-                    onTap: () {
-                      Navigator.pop(context);
+                    onTap: () async {
+                      await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => JazzCashPage(),
+                          ));
                     },
                   ),
                   ListTile(
@@ -322,8 +329,12 @@ void _settingModalBottomSheet(context) {
                       'Easypaisa',
                       style: MyStyles.headTextStyle(),
                     ),
-                    onTap: () {
-                      Navigator.pop(context);
+                    onTap: () async {
+                      await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EasyPaisaPage(),
+                          ));
                     },
                   ),
                 ],

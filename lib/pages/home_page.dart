@@ -4,6 +4,9 @@ import 'package:location/location.dart';
 import 'package:lottie/lottie.dart';
 import 'package:taxi_app/components/drawer.dart';
 import 'package:taxi_app/components/home_page_bottom_cards.dart';
+import 'package:taxi_app/utils/my_styles.dart';
+
+import 'cars_overview_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -54,7 +57,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Taxi App"),
+        title: Text(
+          "Taxi App",
+          style: MyStyles.headTextStyle(),
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -87,32 +93,28 @@ class _HomePageState extends State<HomePage> {
                           children: <Widget>[
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.6,
-                              child: Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        bottomLeft: Radius.circular(10),
-                                        bottomRight: Radius.circular(10),
-                                        topRight: Radius.circular(80),
-                                      )),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Promotions",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                      Expanded(
-                                          child: Text(
-                                              "Choose from a variety of restaurants and get the best details.")),
-                                    ],
-                                  ),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.black12,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      bottomLeft: Radius.circular(10),
+                                      bottomRight: Radius.circular(10),
+                                      topRight: Radius.circular(80),
+                                    )),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Promotions",
+                                      style: MyStyles.headTextStyle(),
+                                    ),
+                                    Expanded(
+                                        child: Text(
+                                      "Choose from a variety of restaurants and get the best details.",
+                                      style: MyStyles.normalTextStyle(),
+                                    )),
+                                  ],
                                 ),
                               ),
                             ),
@@ -159,6 +161,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       Text(
                                         "Please Enable locations for a better experience",
+                                        style: MyStyles.normalTextStyle(),
                                       ),
                                       SizedBox(height: 10),
                                       Material(
@@ -216,6 +219,7 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 Text(
                                   "BOOK A RIDE",
+                                  style: MyStyles.headTextStyle(),
                                 ),
                                 SizedBox(
                                   height: 20,
@@ -233,11 +237,12 @@ class _HomePageState extends State<HomePage> {
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(50),
-                                          color: Colors.green,
+                                          color: Colors.white,
                                         ),
                                       ),
                                       Text(
                                         "Enter your destination",
+                                        style: MyStyles.normalTextStyle(),
                                       ),
                                       SizedBox(
                                         width:
@@ -294,7 +299,6 @@ class _HomePageState extends State<HomePage> {
                       child: Home_Bottom_Cards(
                         svgSrc: "assets/images/home_page_card1.png",
                         title: "Inter City",
-                        press: () {},
                         key: null,
                       ),
                     ),
@@ -302,7 +306,6 @@ class _HomePageState extends State<HomePage> {
                       child: Home_Bottom_Cards(
                         svgSrc: "assets/images/home_page_card1.png",
                         title: "City to City",
-                        press: () {},
                         key: null,
                       ),
                     ),
@@ -311,19 +314,28 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     Expanded(
-                      child: Home_Bottom_Cards(
-                        svgSrc: "assets/images/home_page_card1.png",
-                        title: "Ride Share",
-                        press: () {},
-                        key: null,
+                      child: InkWell(
+                        child: Home_Bottom_Cards(
+                          svgSrc: "assets/images/home_page_card1.png",
+                          title: "Ride Share",
+                          key: null,
+                        ),
                       ),
                     ),
                     Expanded(
-                      child: Home_Bottom_Cards(
-                        svgSrc: "assets/images/home_page_card1.png",
-                        title: "Rent a car",
-                        press: () {},
-                        key: null,
+                      child: InkWell(
+                        onTap: () async {
+                          await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CarsOverView(),
+                              ));
+                        },
+                        child: Home_Bottom_Cards(
+                          svgSrc: "assets/images/home_page_card1.png",
+                          title: "Rent a car",
+                          key: null,
+                        ),
                       ),
                     ),
                   ],

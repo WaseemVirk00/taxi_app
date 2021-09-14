@@ -21,7 +21,7 @@ class CreditCardPageState extends State<CreditCardPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Credit Card View Demo',
+      title: '',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -37,6 +37,7 @@ class CreditCardPageState extends State<CreditCardPage> {
                 cardHolderName: cardHolderName.toUpperCase(),
                 cvvCode: cvvCode,
                 showBackView: isCvvFocused,
+                cardBgColor: Colors.white,
                 obscureCardNumber: true,
                 obscureCardCvv: true,
               ),

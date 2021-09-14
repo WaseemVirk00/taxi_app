@@ -10,4 +10,9 @@ class MyRoutes {
   static const String creditCardPageRoute = "/creditCardPage";
   static const String transactionsPageRoute = "/transactionsPage";
   static const String transactionDetailPageRoute = "/transactionDetailPage";
+  static const String jazzCashPageRoute = "/jazzCashPage";
+  static const String carsOverViewRoute = "/CarsOverView";
+  static const String carDetail = "/CarDetail";
+  static const String rideHistoryPage = "/RideHistoryPage";
+  static const String historyDetailPage = "/HistoryDetailPage";
 }

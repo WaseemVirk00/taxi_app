@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taxi_app/pages/ride_history_page.dart';
+import 'package:taxi_app/pages/wallet_page.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -54,6 +56,13 @@ class MyDrawer extends StatelessWidget {
               "Wallet",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
+            onTap: () async {
+              await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WalletPage(),
+                  ));
+            },
           ),
           ListTile(
             leading: Icon(
@@ -74,6 +83,13 @@ class MyDrawer extends StatelessWidget {
               "Ride History",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
+            onTap: () async {
+              await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RideHistoryPage(),
+                  ));
+            },
           ),
           ListTile(
             leading: Icon(

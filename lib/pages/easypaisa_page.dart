@@ -1,26 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:taxi_app/utils/routers.dart';
 
-class Sign_Up extends StatefulWidget {
-  const Sign_Up({Key? key}) : super(key: key);
+class EasyPaisaPage extends StatefulWidget {
+  const EasyPaisaPage({Key? key}) : super(key: key);
 
   @override
-  _Sign_UpState createState() => _Sign_UpState();
+  _EasyPaisaPageState createState() => _EasyPaisaPageState();
 }
 
-class _Sign_UpState extends State<Sign_Up> {
+class _EasyPaisaPageState extends State<EasyPaisaPage> {
   bool chnageButton = false;
 
   movetohome(BuildContext context) async {
-    setState(() {
-      chnageButton = true;
-    });
-    await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.homeRoute);
-    setState(() {
-      chnageButton = false;
-    });
+    // setState(() {
+    //   chnageButton = true;
+    // });
+    // await Future.delayed(Duration(seconds: 1));
+    // await Navigator.pushNamed(context, MyRoutes.homeRoute);
+    // setState(() {
+    //   chnageButton = false;
+    // });
   }
 
   @override
@@ -32,24 +31,29 @@ class _Sign_UpState extends State<Sign_Up> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: null,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_outlined, color: Colors.black),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(40.0),
+          padding: const EdgeInsets.only(left: 40.0, right: 40.0, bottom: 40.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Center(
                 child: Image.asset(
-                  "assets/images/typing.png",
-                  fit: BoxFit.cover,
-                  height: 200,
+                  "assets/images/easypaisa_logo.png",
+                  fit: BoxFit.fitWidth,
+                  height: 180,
                   width: 200,
                 ),
               ),
               Text(
-                "First Name",
+                "Mobile Number",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -59,11 +63,14 @@ class _Sign_UpState extends State<Sign_Up> {
                 decoration: InputDecoration(),
               ),
               Text(
-                "Last Name",
+                "Amount",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
                 ),
+              ),
+              TextField(
+                decoration: InputDecoration(),
               ),
               SizedBox(
                 height: 50,
@@ -93,18 +100,6 @@ class _Sign_UpState extends State<Sign_Up> {
                                       fontWeight: FontWeight.bold),
                                 )),
                     ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Center(
-                child: Text(
-                  "Term of use.Privacy policy",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
                   ),
                 ),
               ),
