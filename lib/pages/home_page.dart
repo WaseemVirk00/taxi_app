@@ -61,6 +61,12 @@ class _HomePageState extends State<HomePage> {
           "Taxi App",
           style: MyStyles.headTextStyle(),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: InkWell(onTap: () {}, child: Icon(Icons.add_call)),
+          ),
+        ],
         centerTitle: true,
       ),
       body: SingleChildScrollView(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taxi_app/pages/help_page.dart';
+import 'package:taxi_app/pages/notification_history_page.dart';
 import 'package:taxi_app/pages/ride_history_page.dart';
 import 'package:taxi_app/pages/wallet_page.dart';
 
@@ -73,6 +75,13 @@ class MyDrawer extends StatelessWidget {
               "Notifications",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
+            onTap: () async {
+              await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NotificationHistoryPage(),
+                  ));
+            },
           ),
           ListTile(
             leading: Icon(
@@ -102,8 +111,12 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            onTap: () {
-              print("Help");
+            onTap: () async {
+              await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HelpPage(),
+                  ));
             },
             leading: Icon(
               Icons.help_center_rounded,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_app/pages/History_Detail_Page.dart';
+import 'package:taxi_app/pages/cars_category_page.dart';
 import 'package:taxi_app/pages/cars_overview_page.dart';
 import 'package:taxi_app/pages/credit_card_page.dart';
 import 'package:taxi_app/pages/home_page.dart';
@@ -44,6 +45,7 @@ class Myapp extends StatelessWidget {
           MyRoutes.rideHistoryPage: (context) => RideHistoryPage(),
           MyRoutes.carsOverViewRoute: (context) => CarsOverView(),
           MyRoutes.historyDetailPage: (context) => HistoryDetailPage(),
+          MyRoutes.carsCategoryPage: (context) => CarsCategoryPage(),
           MyRoutes.transactionDetailPageRoute: (context) =>
               TransactionDetailPage(),
         });

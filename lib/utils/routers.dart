@@ -15,4 +15,6 @@ class MyRoutes {
   static const String carDetail = "/CarDetail";
   static const String rideHistoryPage = "/RideHistoryPage";
   static const String historyDetailPage = "/HistoryDetailPage";
+  static const String carsCategoryPage = "/CarsCategoryPage";
+  static const String notificationHistoryPage = "/NotificationHistoryPage";
 }

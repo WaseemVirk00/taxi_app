@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+import 'package:taxi_app/components/cars_category_grid.dart';
+import 'package:taxi_app/utils/utils.dart';
+
+class CarsCategoryPage extends StatelessWidget {
+  const CarsCategoryPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_outlined, color: Colors.black),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'CHOOSE CATEGORY',
+              style: MainHeading,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CarsCategoryGrid(),
+          )
+        ],
+      ),
+    );
+  }
+}
