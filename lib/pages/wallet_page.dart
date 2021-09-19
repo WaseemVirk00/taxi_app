@@ -296,7 +296,9 @@ void _settingModalBottomSheet(context) {
                       ),
                       InkWell(
                           onTap: () => Navigator.pop(context),
-                          child: Icon(Icons.cancel)),
+                          child: Icon(
+                            Icons.cancel,
+                          )),
                     ],
                   ),
                   ListTile(

@@ -33,11 +33,7 @@ class Home_Bottom_Cards extends StatelessWidget {
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: <Widget>[
-                  Image.asset(
-                    svgSrc,
-                    width: size.width * 0.18,
-                    // size.width * 0.18 means it use 18% of total width
-                  ),
+                  Image.asset(svgSrc),
                   Text(
                     title,
                     style: MyStyles.normalTextStyle(),

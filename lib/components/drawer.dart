@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:taxi_app/pages/help_page.dart';
 import 'package:taxi_app/pages/notification_history_page.dart';
-import 'package:taxi_app/pages/ride_history_page.dart';
+import 'package:taxi_app/pages/profile_page.dart';
+import 'package:taxi_app/pages/ride_history_page2.dart';
+import 'package:taxi_app/pages/support_page.dart';
 import 'package:taxi_app/pages/wallet_page.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -96,7 +97,7 @@ class MyDrawer extends StatelessWidget {
               await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => RideHistoryPage(),
+                    builder: (context) => RideHistoryPage2(),
                   ));
             },
           ),
@@ -115,7 +116,7 @@ class MyDrawer extends StatelessWidget {
               await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HelpPage(),
+                    builder: (context) => profile_page(),
                   ));
             },
             leading: Icon(
@@ -128,6 +129,13 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            onTap: () async {
+              await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SupportPage(),
+                  ));
+            },
             leading: Icon(
               Icons.logout_rounded,
               color: Colors.black87,

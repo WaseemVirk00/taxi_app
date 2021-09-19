@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
@@ -7,6 +8,7 @@ import 'package:taxi_app/components/home_page_bottom_cards.dart';
 import 'package:taxi_app/utils/my_styles.dart';
 
 import 'cars_overview_page.dart';
+import 'intercity_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -72,71 +74,66 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.18,
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  margin: EdgeInsets.only(left: 2, right: 2),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                          offset: Offset(0, 4),
-                          blurRadius: 20,
-                          color: Colors.black12),
-                    ],
-                  ),
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      onTap: () {},
+            CarouselSlider.builder(
+              itemCount: 15,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) =>
+                      InkWell(
+                onTap: () {},
+                child: Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.6,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: <Widget>[
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.6,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.black12,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      bottomLeft: Radius.circular(10),
-                                      bottomRight: Radius.circular(10),
-                                      topRight: Radius.circular(80),
-                                    )),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Promotions",
-                                      style: MyStyles.headTextStyle(),
-                                    ),
-                                    Expanded(
-                                        child: Text(
-                                      "Choose from a variety of restaurants and get the best details.",
-                                      style: MyStyles.normalTextStyle(),
-                                    )),
-                                  ],
-                                ),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.black12,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10),
+                                topRight: Radius.circular(80),
+                              )),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Promotions",
+                                style: MyStyles.headTextStyle(),
                               ),
-                            ),
-                            Expanded(
-                              child: Image.asset(
-                                "assets/images/home_page_card1.png",
-                                width: MediaQuery.of(context).size.width * 1,
-                                // size.width * 0.18 means it use 18% of total width
-                              ),
-                            ),
-                          ],
+                              Expanded(
+                                  child: Text(
+                                "Choose from a variety of restaurants and get the best details.",
+                                style: MyStyles.normalTextStyle(),
+                              )),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
+                    Expanded(
+                      child: Image.asset(
+                        "assets/images/home_page_card1.png",
+                        width: MediaQuery.of(context).size.width * 1,
+                        // size.width * 0.18 means it use 18% of total width
+                      ),
+                    ),
+                  ],
                 ),
+              ),
+              options: CarouselOptions(
+                aspectRatio: 16 / 9,
+                viewportFraction: 0.8,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 3),
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+                scrollDirection: Axis.horizontal,
               ),
             ),
             checkLocation
@@ -309,10 +306,19 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Expanded(
-                      child: Home_Bottom_Cards(
-                        svgSrc: "assets/images/home_page_card1.png",
-                        title: "City to City",
-                        key: null,
+                      child: InkWell(
+                        onTap: () async {
+                          await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => InterCityPage(),
+                              ));
+                        },
+                        child: Home_Bottom_Cards(
+                          svgSrc: "assets/images/home_page_card1.png",
+                          title: "City to City",
+                          key: null,
+                        ),
                       ),
                     ),
                   ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taxi_app/utils/my_styles.dart';
+import 'package:lottie/lottie.dart';
+import 'package:taxi_app/utils/utils.dart';
 
 class TransactionDetailPage extends StatefulWidget {
   const TransactionDetailPage({Key? key}) : super(key: key);
@@ -22,108 +23,110 @@ class _TransactionDetailPageState extends State<TransactionDetailPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Material(
-              color: Colors.white,
+            Align(
+              alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 30.0, right: 30.0, bottom: 30.0),
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Total Paid - PKR 1",
-                        style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                            left: 18, right: 18, top: 22, bottom: 22),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Color(0xffF1F3F6)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Category",
-                                style: MyStyles.normalTextStyle(),
-                              ),
-                              Text(
-                                "Transport",
-                                style: MyStyles.headTextStyle(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                            left: 18, right: 18, top: 22, bottom: 22),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Color(0xffF1F3F6)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Date",
-                                style: MyStyles.normalTextStyle(),
-                              ),
-                              Text(
-                                "11:43 AM, 26 Jul 2021",
-                                style: MyStyles.headTextStyle(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                            left: 18, right: 18, top: 22, bottom: 22),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Color(0xffF1F3F6)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Transaction ID",
-                                style: MyStyles.normalTextStyle(),
-                              ),
-                              Text(
-                                "ejajj-62972828",
-                                style: MyStyles.headTextStyle(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                padding: const EdgeInsets.only(left: 20.0),
+                child: Text(
+                  'Transaction Detail',
+                  style: MainHeading,
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  _card2History(context),
+                ],
+              ),
+            ),
+            Lottie.asset('assets/files/waves.json',
+                repeat: true, reverse: true),
           ],
         ),
       ),
     );
   }
+}
+
+Widget _card2History(BuildContext context) {
+  return Container(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(0, 4), blurRadius: 20, color: Colors.black12),
+            ],
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  _card3History(context, "Category", " Transport"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  _card3History(context, "Date", " 11:43 AM, 26 Jul 2021"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  _card3History(context, "Transaction ID", " ejajj-62972828"),
+                ],
+              ),
+            ),
+          ),
+        )
+      ],
+    ),
+  );
+}
+
+Widget _card3History(BuildContext context, String Text1, String Text2) {
+  return Container(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(0, 4), blurRadius: 20, color: Colors.black12),
+            ],
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  _mRow(Text1, Text2),
+                ],
+              ),
+            ),
+          ),
+        )
+      ],
+    ),
+  );
+}
+
+Widget _mRow(String Text1, String Text2) {
+  return Row(
+    children: [
+      Expanded(child: Text(Text1)),
+      Expanded(child: Text(Text2)),
+    ],
+  );
 }
