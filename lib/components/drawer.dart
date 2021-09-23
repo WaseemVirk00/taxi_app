@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:taxi_app/pages/edit_profile.dart';
+import 'package:taxi_app/pages/help_page.dart';
 import 'package:taxi_app/pages/notification_history_page.dart';
-import 'package:taxi_app/pages/profile_page.dart';
 import 'package:taxi_app/pages/ride_history_page2.dart';
 import 'package:taxi_app/pages/support_page.dart';
 import 'package:taxi_app/pages/wallet_page.dart';
@@ -110,13 +111,20 @@ class MyDrawer extends StatelessWidget {
               "Schedules Rides",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
+            onTap: () async {
+              await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EditProfilePage(),
+                  ));
+            },
           ),
           ListTile(
             onTap: () async {
               await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => profile_page(),
+                    builder: (context) => HelpPage(),
                   ));
             },
             leading: Icon(

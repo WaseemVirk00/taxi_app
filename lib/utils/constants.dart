@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+String mapkey = "AIzaSyBWFn1lIxBqQdDL5dcddM6oMVmEbyVuQP4";
+
 final otpInputDecoration = InputDecoration(
   counterText: "",
   contentPadding:

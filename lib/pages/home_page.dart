@@ -7,8 +7,9 @@ import 'package:taxi_app/components/drawer.dart';
 import 'package:taxi_app/components/home_page_bottom_cards.dart';
 import 'package:taxi_app/utils/my_styles.dart';
 
+import 'MapSample_Page.dart';
 import 'cars_overview_page.dart';
-import 'intercity_page.dart';
+import 'city_to_city_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -299,10 +300,19 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     Expanded(
-                      child: Home_Bottom_Cards(
-                        svgSrc: "assets/images/home_page_card1.png",
-                        title: "Inter City",
-                        key: null,
+                      child: InkWell(
+                        onTap: () async {
+                          await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MapSample(),
+                              ));
+                        },
+                        child: Home_Bottom_Cards(
+                          svgSrc: "assets/images/home_page_card1.png",
+                          title: "Inter City",
+                          key: null,
+                        ),
                       ),
                     ),
                     Expanded(
@@ -311,7 +321,7 @@ class _HomePageState extends State<HomePage> {
                           await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => InterCityPage(),
+                                builder: (context) => CitytoCityPage(),
                               ));
                         },
                         child: Home_Bottom_Cards(

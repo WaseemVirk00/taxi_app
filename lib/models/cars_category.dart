@@ -1,171 +1,168 @@
-class CarCategoryItem {
-  final String brand;
-  final double price;
-  final String path;
-  final String color;
-  final String seats;
-  final String fuel;
-  final String model;
+class CarsCategories {
+  CarsCategories({
+    required this.item_names,
+    required this.image_path,
+    required this.subcategoryItem,
+  });
 
-  CarCategoryItem(
-      {required this.brand,
-      required this.price,
-      required this.path,
-      required this.color,
-      required this.seats,
-      required this.fuel,
-      required this.model});
+  String item_names;
+  String image_path;
+  List<SubcategoryItem> subcategoryItem;
 }
 
-CarsList allCars = CarsList(cars: [
-  CarCategoryItem(
-      brand: 'Honda Civic',
-      price: 123,
-      color: 'Grey',
-      seats: '4',
-      fuel: '4L',
-      model: '2018',
-      path: 'assets/availablecars/car1.jpg'),
-  CarCategoryItem(
-      brand: 'Land Rover',
-      price: 223,
-      color: 'Grey',
-      seats: '6',
-      fuel: '19L',
-      model: '2016',
-      path: 'assets/availablecars/car2.jpg'),
-  CarCategoryItem(
-      brand: 'Mercedes Benz SLS',
-      price: 203,
-      color: 'Red',
-      seats: '5',
-      fuel: '6L',
-      model: '2019',
-      path: 'assets/availablecars/car3.jpg'),
-  CarCategoryItem(
-      brand: 'Audi A6',
-      price: 190,
-      color: 'Grey',
-      seats: '5',
-      fuel: '6L',
-      model: '2018',
-      path: 'assets/availablecars/car4.jpg'),
-  CarCategoryItem(
-      brand: 'Jaguar',
-      price: 200,
-      color: 'White',
-      seats: '6',
-      fuel: '10L',
-      model: '2019',
-      path: 'assets/availablecars/car5.jpg'),
-  CarCategoryItem(
-      brand: 'BMW',
-      price: 123,
-      color: 'Grey',
-      seats: '6',
-      fuel: '6L',
-      model: '2018',
-      path: 'assets/availablecars/car6.jpg'),
-  CarCategoryItem(
-      brand: 'Honda Civic',
-      price: 123,
-      color: 'Grey',
-      seats: '4',
-      fuel: '4L',
-      model: '2018',
-      path: 'assets/availablecars/car1.jpg'),
-  CarCategoryItem(
-      brand: 'Land Rover',
-      price: 223,
-      color: 'Grey',
-      seats: '6',
-      fuel: '19L',
-      model: '2016',
-      path: 'assets/availablecars/car2.jpg'),
-  CarCategoryItem(
-      brand: 'Mercedes Benz SLS',
-      price: 203,
-      color: 'Red',
-      seats: '5',
-      fuel: '6L',
-      model: '2019',
-      path: 'assets/availablecars/car3.jpg'),
-  CarCategoryItem(
-      brand: 'Audi A6',
-      price: 190,
-      color: 'Grey',
-      seats: '5',
-      fuel: '6L',
-      model: '2018',
-      path: 'assets/availablecars/car4.jpg'),
-  CarCategoryItem(
-      brand: 'Jaguar',
-      price: 200,
-      color: 'White',
-      seats: '6',
-      fuel: '10L',
-      model: '2019',
-      path: 'assets/availablecars/car5.jpg'),
-  CarCategoryItem(
-      brand: 'BMW',
-      price: 123,
-      color: 'Grey',
-      seats: '6',
-      fuel: '6L',
-      model: '2018',
-      path: 'assets/availablecars/car6.jpg'),
-  CarCategoryItem(
-      brand: 'Honda Civic',
-      price: 123,
-      color: 'Grey',
-      seats: '4',
-      fuel: '4L',
-      model: '2018',
-      path: 'assets/availablecars/car1.jpg'),
-  CarCategoryItem(
-      brand: 'Land Rover',
-      price: 223,
-      color: 'Grey',
-      seats: '6',
-      fuel: '19L',
-      model: '2016',
-      path: 'assets/availablecars/car2.jpg'),
-  CarCategoryItem(
-      brand: 'Mercedes Benz SLS',
-      price: 203,
-      color: 'Red',
-      seats: '5',
-      fuel: '6L',
-      model: '2019',
-      path: 'assets/availablecars/car3.jpg'),
-  CarCategoryItem(
-      brand: 'Audi A6',
-      price: 190,
-      color: 'Grey',
-      seats: '5',
-      fuel: '6L',
-      model: '2018',
-      path: 'assets/availablecars/car4.jpg'),
-  CarCategoryItem(
-      brand: 'Jaguar',
-      price: 200,
-      color: 'White',
-      seats: '6',
-      fuel: '10L',
-      model: '2019',
-      path: 'assets/availablecars/car5.jpg'),
-  CarCategoryItem(
-      brand: 'BMW',
-      price: 123,
-      color: 'Grey',
-      seats: '6',
-      fuel: '6L',
-      model: '2018',
-      path: 'assets/availablecars/car6.jpg'),
+class SubcategoryItem {
+  SubcategoryItem({
+    required this.sub_item_names,
+    required this.sub_image_path,
+  });
+
+  String sub_item_names;
+  String sub_image_path;
+}
+
+CategoriesList allItems = CategoriesList(items: [
+  CarsCategories(
+    item_names: 'Car',
+    image_path: 'assets/images/splash_car.png',
+    subcategoryItem: [
+      SubcategoryItem(
+        sub_item_names: 'Mini',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Go',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Plus',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Business',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+    ],
+  ),
+  CarsCategories(
+    item_names: '6-7 Seater',
+    image_path: 'assets/images/splash_car.png',
+    subcategoryItem: [
+      SubcategoryItem(
+        sub_item_names: 'Carry Bolan Dabba',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Suzuki Every',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Honda BRV',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Suzuki APV',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+    ],
+  ),
+  CarsCategories(
+    item_names: '9-17 Seater',
+    image_path: 'assets/images/splash_car.png',
+    subcategoryItem: [
+      SubcategoryItem(
+        sub_item_names: 'Toyota 224',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Toyota 214',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Grand Strax',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Carnival',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+    ],
+  ),
+  CarsCategories(
+    item_names: '22-28 Seater',
+    image_path: 'assets/images/splash_car.png',
+    subcategoryItem: [
+      SubcategoryItem(
+        sub_item_names: 'Toyota 4c Saloon',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Toyota Coaster',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+    ],
+  ),
+  CarsCategories(
+    item_names: '42-46 Seater',
+    image_path: 'assets/images/splash_car.png',
+    subcategoryItem: [
+      SubcategoryItem(
+        sub_item_names: 'Youtong Bus',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Daewoo Bus',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Old Model Bus',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+    ],
+  ),
+  CarsCategories(
+    item_names: 'Luxury - SUV\'S',
+    image_path: 'assets/images/splash_car.png',
+    subcategoryItem: [
+      SubcategoryItem(
+        sub_item_names: 'Landcruisor Prado',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Landcruisor V8',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+    ],
+  ),
+  CarsCategories(
+    item_names: 'Loader',
+    image_path: 'assets/images/splash_car.png',
+    subcategoryItem: [
+      SubcategoryItem(
+        sub_item_names: 'PICK UP',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Shahzor',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Mini Mazda',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Full Size Mazda',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+      SubcategoryItem(
+        sub_item_names: 'Truck',
+        sub_image_path: 'assets/images/splash_car.png',
+      ),
+    ],
+  ),
 ]);
 
-class CarsList {
-  List<CarCategoryItem> cars;
+class CategoriesList {
+  List<CarsCategories> items;
 
-  CarsList({required this.cars});
+  CategoriesList({required this.items});
 }

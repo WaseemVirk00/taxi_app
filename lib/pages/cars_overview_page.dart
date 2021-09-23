@@ -26,7 +26,7 @@ class CarsOverView extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: CarsGrid(),
+            child: CarsGrid(item_index: 0),
           )
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taxi_app/pages/ride_details_page.dart';
 import 'package:taxi_app/utils/styles.dart';
 
 class RideHistoryWidget extends StatelessWidget {
@@ -43,8 +44,12 @@ class RideHistoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // Navigator.of(context).pushNamed(RideDetailsPage.routeName);
+      onTap: () async {
+        await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => RideHistoryDetailPage(),
+            ));
       },
       child: Container(
         child: Column(
@@ -56,16 +61,16 @@ class RideHistoryWidget extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0, top: 30.0),
-                  child: _buildRideInfo("From", "72 Evbotubu lane Benin",
-                      "My Home", Colors.green),
+                  child: _buildRideInfo(
+                      "From", "Link Road Model town", "Lahore", Colors.green),
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Padding(
                     padding: const EdgeInsets.only(left: 20, top: 5),
-                    child: _buildRideInfo("To", "Ring road center mami market",
-                        "Shopping Mall", Colors.red)),
+                    child:
+                        _buildRideInfo("To", "V Chock", "Multan", Colors.red)),
                 SizedBox(
                   height: 30,
                 ),

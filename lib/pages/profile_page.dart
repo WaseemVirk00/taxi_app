@@ -6,10 +6,8 @@ import 'package:styled_widget/styled_widget.dart';
 class profile_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: SafeArea(child: UserPage()),
-      ),
+    return Scaffold(
+      body: SafeArea(child: UserPage()),
     );
   }
 }
@@ -24,7 +22,7 @@ class UserPage extends StatelessWidget {
 
     return <Widget>[
       Text(
-        'User settings',
+        '',
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
       ).alignment(Alignment.center).padding(bottom: 20),
       UserCard(),
@@ -46,29 +44,20 @@ class UserCard extends StatelessWidget {
           .padding(right: 10),
       <Widget>[
         Text(
-          'Rein Gundersen Bentdal',
+          'Muhammad Waseem',
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ).padding(bottom: 5),
-        Text(
-          'Creative builder',
-          style: TextStyle(
-            color: Colors.white.withOpacity(0.6),
-            fontSize: 12,
-          ),
-        ),
       ].toColumn(crossAxisAlignment: CrossAxisAlignment.start),
     ].toRow();
   }
 
   Widget _buildUserStats() {
     return <Widget>[
-      _buildUserStatsItem('846', 'Collect'),
-      _buildUserStatsItem('51', 'Attention'),
-      _buildUserStatsItem('267', 'Track'),
+      _buildUserStatsItem('846', 'Total Rides'),
       _buildUserStatsItem('39', 'Coupons'),
     ]
         .toRow(mainAxisAlignment: MainAxisAlignment.spaceAround)
@@ -124,9 +113,8 @@ class ActionsRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) => <Widget>[
         _buildActionItem('Wallet', Icons.attach_money),
-        _buildActionItem('Delivery', Icons.card_giftcard),
-        _buildActionItem('Message', Icons.message),
-        _buildActionItem('Service', Icons.room_service),
+        _buildActionItem('Transactions', Icons.card_giftcard),
+        _buildActionItem('Chat', Icons.message),
       ].toRow(mainAxisAlignment: MainAxisAlignment.spaceAround);
 }
 
@@ -148,20 +136,14 @@ const List<SettingsItemModel> settingsItems = [
   SettingsItemModel(
     icon: Icons.location_on,
     color: Color(0xff8D7AEE),
-    title: 'Address',
-    description: 'Ensure your harvesting address',
+    title: 'Manage Address',
+    description: 'Pre Saved Addresses',
   ),
   SettingsItemModel(
-    icon: Icons.lock,
-    color: Color(0xffF468B7),
-    title: 'Privacy',
-    description: 'System permission change',
-  ),
-  SettingsItemModel(
-    icon: Icons.menu,
+    icon: Icons.language,
     color: Color(0xffFEC85C),
-    title: 'General',
-    description: 'Basic functional settings',
+    title: 'Language',
+    description: 'Set your preferred language',
   ),
   SettingsItemModel(
     icon: Icons.notifications,
@@ -170,10 +152,22 @@ const List<SettingsItemModel> settingsItems = [
     description: 'Take over the news in time',
   ),
   SettingsItemModel(
-    icon: Icons.question_answer,
+    icon: Icons.mail,
     color: Color(0xffBFACAA),
     title: 'Support',
-    description: 'We are here to help',
+    description: 'Connect Us for help',
+  ),
+  SettingsItemModel(
+    icon: Icons.lock,
+    color: Color(0xffF468B7),
+    title: 'Privacy Policy',
+    description: 'Know our privacy policies',
+  ),
+  SettingsItemModel(
+    icon: Icons.question_answer,
+    color: Color(0xff5FD0D3),
+    title: 'FAQs',
+    description: 'Get your answers',
   ),
 ];
 

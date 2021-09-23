@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:taxi_app/components/header_widget.dart';
 import 'package:taxi_app/utils/styles.dart';
 
@@ -50,57 +51,144 @@ class SupportPage extends StatelessWidget {
             key: null,
           ),
           Positioned(
-              top: mQ.height * 0.18,
+              top: 47,
               child: Container(
-                height: 500,
+                height: 800,
                 width: mQ.width,
                 child: ListView(
                   children: <Widget>[
-                    new Container(
-                      width: 150,
-                      height: 150,
-                      decoration: new BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xffd6d6d6),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color(0x29000000),
-                              offset: Offset(0, 5),
-                              blurRadius: 6,
-                              spreadRadius: 0)
-                        ],
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.headset,
-                          color: Colors.white,
-                          size: 100,
+                    Lottie.asset("assets/files/help_grow.json",
+                        height: 180, reverse: true),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                primary: Color(0xffFEC85C),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(Icons.call),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text("Call us"),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      "Contact us@",
-                      textAlign: TextAlign.center,
-                      style: CustomStyles.cardBoldDarkTextStyle,
-                    ),
-                    SizedBox(
-                      height: 20,
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                primary: Color(0xff5FD0D3),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(Icons.mail),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text("Mail us"),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 30, top: 30),
+                      padding: const EdgeInsets.only(
+                          left: 50.0, top: 30, right: 30.0),
                       child: Column(
-                        children: <Widget>[
-                          _buildRowWidgets(Icons.facebook, "facebook",
-                              "facebook.com/osagiededennis"),
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Write us",
+                            style: CustomStyles.mediumTextStyle,
+                          ),
+                          Text(
+                            "Let us kow your query",
+                            style: CustomStyles.smallLightTextStyle,
+                          ),
                           SizedBox(
-                            height: 25,
+                            height: 20,
+                          ),
+                          Text(
+                            "Phone Number/Email",
+                            style: CustomStyles.smallTextStyle,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              hintText: "Add contact info",
+                              border: InputBorder.none,
+                            ),
+                          ),
+                          Divider(
+                            height: 1,
+                            color: Colors.blueGrey,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Add your issue/feedback",
+                            style: CustomStyles.smallTextStyle,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              hintText: "Write your message",
+                              border: InputBorder.none,
+                            ),
+                          ),
+                          Divider(
+                            height: 1,
+                            color: Colors.blueGrey,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Center(
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                  primary: Color(0xff5FD0D3),
+                                  textStyle: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text("Submit"),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 520,
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               )),
@@ -124,7 +212,7 @@ class SupportPage extends StatelessWidget {
                   shape: CircleBorder(),
                 ),
                 Text(
-                  "Call Center",
+                  "Support",
                   style: CustomStyles.cardBoldTextStyle,
                 ),
               ],
